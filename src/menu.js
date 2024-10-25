@@ -10,10 +10,14 @@ export class ContextMenu extends Menu {
     this.el.classList.add('open');
     this.el.innerHTML = this.modules.map(module => module.toHTML()).join('');
 
-    // здесь будет обработчик событий на добавленные элементы (модули)
-    // при клике на них будет вызываться метод trigger() от каждого модуля
+    /*     здесь обработчик событий на добавленные элементы (модули)
+        при клике на них будет вызываться метод trigger() от каждого модуля */
     this.el.addEventListener('click', (e) => {
-
+      const type = e.target.dataset.type;
+      const module = this.modules.find(m => m.type === type);
+      if (module) {
+        module.trigger();
+      }
     });
   }
 
