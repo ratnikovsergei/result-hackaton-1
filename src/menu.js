@@ -6,8 +6,21 @@ export class ContextMenu extends Menu {
     this.modules = [];
   }
 
-  open() {
+  open(x, y) {
+
+    /* реализация, чтобы меню оставалось в пределах экрана */
+    const menuWidth = this.el.offsetWidth;
+    const menuHeight = this.el.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    const corX = Math.min(x, windowWidth - menuWidth);
+    const corY = Math.min(y, windowHeight - menuHeight);
+
     this.el.className = 'menu open';
+    this.el.style.left = `${corX}px`;
+    this.el.style.top = `${corY}px`;
+
     this.el.innerHTML = this.modules.map(module => module.toHTML()).join('');
 
     /*     здесь обработчик событий на добавленные элементы (модули)

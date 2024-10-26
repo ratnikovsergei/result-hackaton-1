@@ -8,7 +8,7 @@ const menu = new ContextMenu('#menu');
 
 document.addEventListener('contextmenu', (e) => {
   e.preventDefault();
-  menu.open();
+  menu.open(e.clientX, e.clientY);
 });
 
 const backgroundModule = new BackgroundModule('background', 'Случайный фон');
