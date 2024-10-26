@@ -1,16 +1,16 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
-  const isProd = argv.mode === 'production'
-  const isDev = !isProd
+  const isProd = argv.mode === 'production';
+  const isDev = !isProd;
 
-  console.log('isProd', isProd)
-  console.log('isDev', isDev)
+  console.log('isProd', isProd);
+  console.log('isDev', isDev);
 
   const filename = (ext) =>
-    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
+    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`;
 
   return {
     target: 'web',
@@ -62,8 +62,20 @@ module.exports = (env, argv) => {
               presets: ['@babel/preset-env']
             }
           }
+        },
+        {
+          test: /\.mp3$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'assets/sounds/',
+              },
+            },
+          ],
         }
       ],
     }
-  }
-}
+  };
+};

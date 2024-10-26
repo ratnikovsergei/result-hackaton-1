@@ -7,7 +7,7 @@ export class ContextMenu extends Menu {
   }
 
   open() {
-    this.el.classList.add('open');
+    this.el.className = 'menu open';
     this.el.innerHTML = this.modules.map(module => module.toHTML()).join('');
 
     /*     здесь обработчик событий на добавленные элементы (модули)
@@ -22,7 +22,7 @@ export class ContextMenu extends Menu {
   }
 
   close() {
-    this.el.classList.remove('open');
+    this.el.className = 'menu';
   }
 
   add(module) {
