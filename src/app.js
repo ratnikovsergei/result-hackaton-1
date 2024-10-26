@@ -22,5 +22,5 @@ const randomQuote = new RandomQuote('random-quote', 'Случайная цита
 menu.add(randomQuote);
 const randomSound = new RandomSound('random-sound', 'Случайный звук');
 menu.add(randomSound);
-// const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
-// menu.add(shapeModule);
+const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
+menu.add(shapeModule);
