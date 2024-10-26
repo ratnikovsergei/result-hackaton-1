@@ -4,6 +4,7 @@ export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
     this.modules = [];
+    this.currentModule = null;
     this.addListener();
   }
 
@@ -14,10 +15,18 @@ export class ContextMenu extends Menu {
       const type = e.target.dataset.type;
       const module = this.modules.find(m => m.type === type);
       if (module) {
+        this.stopModule();
         module.trigger();
+        this.currentModule = module;
       }
       this.close();
     });
+  }
+
+  stopModule() {
+    if (this.currentModule && typeof this.currentModule.stop === 'function') {
+      this.currentModule.stop();
+    }
   }
 
   open(x, y) {

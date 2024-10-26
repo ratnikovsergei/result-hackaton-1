@@ -1,5 +1,5 @@
-import { Module } from "../core/module";
-import { getRandomGradient } from "../utils.js";
+import {Module} from "../core/module";
+import {getRandomGradient} from "../utils.js";
 
 export class BackgroundModule extends Module {
   constructor(type, text) {
