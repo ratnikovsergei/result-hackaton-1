@@ -45,13 +45,15 @@ export class ClicksModule extends Module {
     const wrapper = document.createElement('div');
     wrapper.className = 'box';
     wrapper.style.cssText = 'display: block; width: 10%; margin-top: 0; margin-right: auto; margin-left: 85%; padding: 25px; padding-top: 10px; color: white; background: #5B3C67'; 
+    
     const time = document.createElement('span');
     time.className = 'tm';
     time.style.cssText = 'margin: 7%; font-size: 20pt; font-weight: 800; color: black';
+    
     const timer = document.createElement('span');
     timer.className = 'tr';
     timer.style.cssText = 'margin: 7%; font-size: 20pt; font-weight: 800';  
-    // const f = document.getElementsByTagName('form')[0];
+    
     document.body.append(wrapper);
     wrapper.append(timer, time);
     let id = setInterval(updateTime, 1000);
