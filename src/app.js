@@ -1,6 +1,5 @@
 import './styles.css';
 import {ContextMenu} from "./menu.js";
-
 import {BackgroundModule} from "./modules/background.module.js";
 import {ClicksModule} from "./modules/clicks.module.js";
 import {ModalModule} from "./modules/modal.module.js";
@@ -17,19 +16,17 @@ document.addEventListener('contextmenu', (e) => {
   menu.open(e.clientX, e.clientY);
 });
 
-const backgroundModule = new BackgroundModule('background', 'Случайный фон');
-const clickModule = new ClicksModule('clicks-module', 'Подсчет кликов');
-const modalModule = new ModalModule('modal-module', 'Модальное окно');
-const randomQuote = new RandomQuote('random-quote', 'Случайная цитата');
-const randomSound = new RandomSound('random-sound', 'Случайный звук');
-const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
-const timerModule = new TimerModule('timer-module', 'Обратный отсчет');
+const modules = [
+  {module: BackgroundModule, type: 'random-background-color', text: 'Случайный фон'},
+  {module: ClicksModule, type: 'clicks-analytics-module', text: 'Подсчет кликов'},
+  {module: ModalModule, type: 'modal-window-module', text: 'Модальное окно'},
+  {module: RandomQuote, type: 'random-quote-module', text: 'Случайная цитата'},
+  {module: RandomSound, type: 'random-sound-module', text: 'Случайный звук'},
+  {module: ShapeModule, type: 'shape-module', text: 'Рисуем фигуры'},
+  {module: TimerModule, type: 'timer-module', text: 'Обратный отсчет'}
+];
 
-menu.add(backgroundModule);
-menu.add(clickModule);
-menu.add(modalModule);
-menu.add(randomQuote);
-menu.add(randomSound);
-menu.add(shapeModule);
-menu.add(timerModule)
-
+modules.forEach(({module, type, text}) => {
+  const setModule = new module(type, text);
+  menu.add(setModule);
+});
