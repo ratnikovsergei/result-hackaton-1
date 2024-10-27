@@ -6,6 +6,7 @@ import {ClicksModule} from "./modules/clicks.module.js";
 import {RandomQuote} from "./modules/quote.module.js";
 import {RandomSound} from "./modules/randomsounds.module.js";
 import {ShapeModule} from "./modules/shape.module.js";
+import {TimerModule} from "./modules/timer.module.js";
 
 const menu = new ContextMenu('#menu');
 
@@ -24,3 +25,5 @@ const randomSound = new RandomSound('random-sound', 'Случайный звук
 menu.add(randomSound);
 // const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
 // menu.add(shapeModule);
+const timerModule = new TimerModule('timer-module', 'Обратный отсчет');
+menu.add(timerModule);
