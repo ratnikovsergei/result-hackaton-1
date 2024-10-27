@@ -12,20 +12,6 @@ export class ShapeModule extends Module {
 		this.maxFigureSize = 100;
 		this.minCircleRadius = 30;
 		this.maxCircleRadius = 60;
-
-		this.createBoard();
-
-		// Обработчик события на левую кнопку мыши
-		this.$container.addEventListener('mousedown', event => {
-			if (event.button === 0) {
-				// 0 - левая кнопка мыши
-				if (this.figureInterval) {
-					this.stopDrawingFigures(); // Если интервалы уже запущены, останавливаем
-				} else {
-					this.startDrawingFigures(); // Запускаем создание фигур
-				}
-			}
-		});
 	}
 
 	// Метод для создания доски canvas
@@ -35,6 +21,16 @@ export class ShapeModule extends Module {
 		this.$container.height = window.innerHeight - 70;
 		document.body.appendChild(this.$container);
 		this.ctx = this.$container.getContext('2d');
+
+		// Обработчик события на левую кнопку мыши
+		this.$container.addEventListener('mousedown', event => {
+			if (event.button === 0) {
+				// 0 - левая кнопка мыши
+				if (this.figureInterval) {
+					this.stopDrawingFigures(); // Если интервалы уже запущены, останавливаем
+				}
+			}
+		});
 	}
 
 	// Метод генерации случайного числа
@@ -247,10 +243,7 @@ export class ShapeModule extends Module {
 	}
 
 	trigger() {
-		if (this.figureInterval) {
-			this.stopDrawingFigures(); // Если фигуры уже рисуются, остановить
-		} else {
-			this.startDrawingFigures(); // Запуск создания фигур
-		}
+		this.createBoard();
+		this.startDrawingFigures();
 	}
 }
