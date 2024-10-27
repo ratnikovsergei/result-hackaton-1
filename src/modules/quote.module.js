@@ -4,6 +4,7 @@ import {random} from "../utils.js";
 
 export class RandomQuote extends Module {
   #quotes;
+  #quoteDiv;
 
   constructor(type, text) {
     super(type, text);
@@ -18,34 +19,34 @@ export class RandomQuote extends Module {
 
     const randomQuote = this.#quotes[random(0, this.#quotes.length)];
 
-    const quoteDiv = document.createElement('div');
-    quoteDiv.classList.add('quote-div');
+    this.#quoteDiv = document.createElement('div');
+    this.#quoteDiv.classList.add('quote-div');
 
     const quoteText = document.createElement('p');
     quoteText.classList.add('quote-text');
     quoteText.textContent = randomQuote.text;
-    quoteDiv.append(quoteText);
+    this.#quoteDiv.append(quoteText);
 
     const quoteAuthor = document.createElement('p');
     quoteAuthor.classList.add('quote-author');
     quoteAuthor.textContent = `- ${randomQuote.author}`;
-    quoteDiv.append(quoteAuthor);
+    this.#quoteDiv.append(quoteAuthor);
 
     const closeBtn = document.createElement('button');
     closeBtn.classList.add('quote-close-button');
     closeBtn.textContent = 'Закрыть';
     closeBtn.addEventListener('click', () => {
-      document.body.removeChild(quoteDiv);
+      this.stop();
     });
-    quoteDiv.append(closeBtn);
+    this.#quoteDiv.append(closeBtn);
 
-    document.body.append(quoteDiv);
+    document.body.append(this.#quoteDiv);
   }
 
   stop() {
-    const quoteDiv = document.querySelector('.quote-div');
-    if (quoteDiv) {
-      document.body.remove(quoteDiv);
+    if (this.#quoteDiv) {
+      document.body.removeChild(this.#quoteDiv);
+      this.#quoteDiv = null;
     }
   }
 
