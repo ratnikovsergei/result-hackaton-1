@@ -45,7 +45,7 @@ export class ModalModule extends Module {
   // Изменение текста и перемещение модального окна при наведении
   changeModalContent() {
     // Генерация случайного положения для первых трех наведений
-    if (this.hoverCount < 3) {
+    if (this.hoverCount < 2) {
       const modalWidth = 300; // Установите ширину вашего модального окна
       const modalHeight = 130; // Установите высоту вашего модального окна
 
@@ -162,5 +162,7 @@ export class ModalModule extends Module {
     if (img) {
       img.remove();
     }
+
+	this.hoverCount = 0;
   }
 }
