@@ -61,7 +61,7 @@ export class ClicksModule extends Module {
     
     const timer = document.createElement('span');
     timer.className = 'tr';
-    timer.style.cssText = 'margin: 7%; text-align: center;font-size: 20pt; font-weight: 800';  
+    timer.style.cssText = 'margin: 7%; text-align: center; font-size: 20pt; font-weight: 800';  
     
     document.body.append(wrapper);
     wrapper.append(timer, time);
