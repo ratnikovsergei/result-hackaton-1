@@ -1,10 +1,19 @@
 import {Module} from '../core/module'
 
 export class ClicksModule extends Module {
+  stop(){
+    stopTimer();
+  }
   trigger(){
     createTimer();
   }
 }
+  let stopId = null;
+  function stopTimer(){
+    document.querySelector("form") ? document.querySelector('form').remove() : 1;
+    document.querySelector("div") ? document.querySelector('div').remove() : 1;
+    clearInterval(stopId);
+  }
   function createTimer(){
     const form = document.createElement('form'),
           label = document.createElement('label'),       
@@ -52,21 +61,21 @@ export class ClicksModule extends Module {
     
     const timer = document.createElement('span');
     timer.className = 'tr';
-    timer.style.cssText = 'margin: 7%; text-align: center; font-size: 20pt; font-weight: 800';  
+    timer.style.cssText = 'margin: 7%; text-align: center;font-size: 20pt; font-weight: 800';  
     
     document.body.append(wrapper);
     wrapper.append(timer, time);
-    let id = setInterval(updateTime, 1000);
+    stopIdd = setInterval(updateTime, 1000);
   
     function updateTime() {
-      t -= 1;
+      t--;
       timer.textContent = t;
       const now = new Date();
       time.textContent = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;    
       if(t <= 0){
         document.getElementsByTagName('form')[0].remove();
         wrapper.remove()               
-        clearInterval(id);
+        clearInterval(stopIdd);
       }
     }
   }
