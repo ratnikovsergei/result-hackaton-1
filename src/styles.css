@@ -90,3 +90,53 @@ body {
 .quote-close-button:hover {
   background-color: #0056b3;
 }
+
+.modal {
+  width: 300px;
+  height: 130px;
+  background-color: cadetblue;
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal__title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.modal__button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal__button:hover {
+  cursor: pointer;
+  background-color: orangered;
+}
+
+.modal.center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moving-image {
+  width: 200px;
+  height: auto;
+}
