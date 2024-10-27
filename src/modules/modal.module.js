@@ -120,14 +120,14 @@ export class ModalModule extends Module {
     const imgWidth = 200; // Ширина изображения в пикселях, замените на реальную ширину изображения
     let position = 0; // Позиция по оси X
 
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       // Перемещаем изображение вправо
       position += 1; // Скорость перемещения
 
       if (position <= window.innerWidth - imgWidth) {
         img.style.left = position + 'px'; // Обновляем позицию изображения
       } else {
-        clearInterval(interval); // Останавливаем анимацию, если картинка достигла правого края
+        clearInterval(this.interval); // Останавливаем анимацию, если картинка достигла правого края
         img.remove(); // Удаляем изображение после завершения анимации
       }
     }, 5);
@@ -143,8 +143,24 @@ export class ModalModule extends Module {
   }
 
   stop() {
+    // Удаляем класс позиции
     document.body.classList.remove('position');
-    this.$modal.remove();
-    img.remove();
+
+    // Очищаем таймер для анимации изображения, если он существует
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+
+    // Удаляем модальное окно, если оно существует
+    if (this.$modal) {
+      this.$modal.remove();
+      this.$modal = null; // Очистим ссылку
+    }
+
+    // Находим и удаляем изображение, если оно существует
+    const img = document.querySelector('.moving-image');
+    if (img) {
+      img.remove();
+    }
   }
 }
