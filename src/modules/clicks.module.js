@@ -32,12 +32,13 @@ export class ClicksModule extends Module {
       window.requestAnimationFrame(moveSquare);
     }
     window.requestAnimationFrame(moveSquare);
-  
+
     let id = setTimeout(() => {
       alert(`Вы успели кликнунь ${clicks + dblclicks} раз`);
       square.remove();
       clicks = 0;
       dblclicks = 0;
-      clearTimeout(id);        
-    }, 5000);   
-  }  
+      clearTimeout(id);
+    }, 5000);
+  }
+}
