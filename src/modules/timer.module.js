@@ -65,7 +65,7 @@ export class ClicksModule extends Module {
     
     document.body.append(wrapper);
     wrapper.append(timer, time);
-    stopIdd = setInterval(updateTime, 1000);
+    stopId = setInterval(updateTime, 1000);
   
     function updateTime() {
       t--;
@@ -75,7 +75,7 @@ export class ClicksModule extends Module {
       if(t <= 0){
         document.getElementsByTagName('form')[0].remove();
         wrapper.remove()               
-        clearInterval(stopIdd);
+        clearInterval(stopId);
       }
     }
   }
