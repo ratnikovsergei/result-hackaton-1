@@ -1,4 +1,4 @@
-import {Module} from '../core/module'
+import {Module} from '../core/module';
 
 export class ClicksModule extends Module {
   stop(){
@@ -77,5 +77,3 @@ export class ClicksModule extends Module {
         wrapper.remove()               
         clearInterval(stopId);
       }
-    }
-  }
