@@ -14,14 +14,14 @@ export class ClicksModule extends Module {
   
     form.append(label, seconds, start);
     form.className = 'frm';
-    form.style.cssText = 'display: block; width: 10%; margin-bottom: 0; margin-right: auto; margin-left: 85%; padding: 25px; padding-bottom: 10px; color: white; background: #5B3C67'; 
+    form.style.cssText = 'display: block; width: 10%; margin-bottom: 0; margin-right: auto; margin-left: 80%; padding: 25px; padding-bottom: 10px; color: white; background: #5B3C67'; 
   
     label.textContent = 'Введите число секунд';
     label.className = 'lb';
     label.style.cssText = 'text-align: center; margin-bottom: 10px';
   
     seconds.className = 'inp';
-    seconds.style.cssText = 'margin: 10px; padding: 10px; text-align: center; font-size: 16pt; border: 1px solid #ff8c00';
+    seconds.style.cssText = 'margin: 10px; width: 80%; padding: 10px; text-align: center; font-size: 16pt; border: 1px solid #ff8c00';
     seconds.setAttribute('type', 'number');
     seconds.setAttribute('placeholder', '0');
     seconds.setAttribute('required', '');
@@ -44,15 +44,15 @@ export class ClicksModule extends Module {
   function startTimer(t){
     const wrapper = document.createElement('div');
     wrapper.className = 'box';
-    wrapper.style.cssText = 'display: block; width: 10%; margin-top: 0; margin-right: auto; margin-left: 85%; padding: 25px; padding-top: 10px; color: white; background: #5B3C67'; 
+    wrapper.style.cssText = 'display: block; width: 10%; margin-top: 0; margin-right: auto; margin-left: 80%; padding: 25px; padding-top: 10px; color: white; background: #5B3C67'; 
     
     const time = document.createElement('span');
     time.className = 'tm';
-    time.style.cssText = 'margin: 7%; font-size: 20pt; font-weight: 800; color: black';
+    time.style.cssText = 'margin: 7%; text-align: center; font-size: 20pt; font-weight: 800; color: black';
     
     const timer = document.createElement('span');
     timer.className = 'tr';
-    timer.style.cssText = 'margin: 7%; font-size: 20pt; font-weight: 800';  
+    timer.style.cssText = 'margin: 7%; text-align: center; font-size: 20pt; font-weight: 800';  
     
     document.body.append(wrapper);
     wrapper.append(timer, time);
