@@ -4,7 +4,7 @@ export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
     this.modules = [];
-    this.currentModule = null;
+    this.currentModule;
     this.addListener();
   }
 

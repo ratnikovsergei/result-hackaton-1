@@ -1,4 +1,5 @@
 import './styles.css';
+import 'animate.css';
 import {ContextMenu} from "./menu.js";
 
 import {BackgroundModule} from "./modules/background.module.js";
