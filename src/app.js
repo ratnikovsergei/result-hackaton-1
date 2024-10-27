@@ -3,10 +3,12 @@ import {ContextMenu} from "./menu.js";
 
 import {BackgroundModule} from "./modules/background.module.js";
 import {ClicksModule} from "./modules/clicks.module.js";
+import {ModalModule} from "./modules/modal.module.js";
 import {RandomQuote} from "./modules/quote.module.js";
 import {RandomSound} from "./modules/randomsounds.module.js";
 import {ShapeModule} from "./modules/shape.module.js";
 import {TimerModule} from "./modules/timer.module.js";
+
 
 const menu = new ContextMenu('#menu');
 
@@ -16,14 +18,18 @@ document.addEventListener('contextmenu', (e) => {
 });
 
 const backgroundModule = new BackgroundModule('background', 'Случайный фон');
-menu.add(backgroundModule);
 const clickModule = new ClicksModule('clicks-module', 'Подсчет кликов');
-menu.add(clickModule);
+const modalModule = new ModalModule('modal-module', 'Модальное окно');
 const randomQuote = new RandomQuote('random-quote', 'Случайная цитата');
-menu.add(randomQuote);
 const randomSound = new RandomSound('random-sound', 'Случайный звук');
-menu.add(randomSound);
-// const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
-// menu.add(shapeModule);
+const shapeModule = new ShapeModule('shape-module', 'Нарисовать фигуру');
 const timerModule = new TimerModule('timer-module', 'Обратный отсчет');
-menu.add(timerModule);
+
+menu.add(backgroundModule);
+menu.add(clickModule);
+menu.add(modalModule);
+menu.add(randomQuote);
+menu.add(randomSound);
+menu.add(shapeModule);
+menu.add(timerModule)
+
