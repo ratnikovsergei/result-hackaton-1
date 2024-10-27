@@ -19,13 +19,11 @@ export class ClicksModule extends Module {
   
     square.addEventListener('click', e => {
       clicks++;
-      h2.textContent = clicks + dblclicks;
-      console.log('cl', clicks);
+      h2.textContent = clicks + dblclicks;      
     });  
     square.addEventListener('dblclick', e => {
       dblclicks++;
-      h2.textContent = clicks + dblclicks;
-      console.log('db', dblclicks);
+      h2.textContent = clicks + dblclicks;      
     });
   
     function moveSquare() {
@@ -42,7 +40,7 @@ export class ClicksModule extends Module {
       square.remove();
       clicks = 0;
       dblclicks = 0;
-      clearTimeout(id)        
+      clearTimeout(id);        
     }, 5000);   
   }  
 }
